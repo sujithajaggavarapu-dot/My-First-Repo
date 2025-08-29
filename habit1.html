@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Habit Garden</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .garden-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2e8b57;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #556b2f;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .habit-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .habit-item {
+            background-color: #f7fff7;
+            border: 1px solid #d4e9d4;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .habit-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .habit-item input[type="checkbox"] {
+            transform: scale(1.5);
+            margin-right: 15px;
+            accent-color: #2e8b57;
+        }
+
+        .habit-item label {
+            font-size: 1.1em;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+        .habit-item.completed label {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .plant-icon {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="garden-container">
+        <h1>🌱 My Habit Garden</h1>
+        <p class="subtitle">Water your habits daily and watch them grow!</p>
+        
+        <ul class="habit-list">
+            <li class="habit-item">
+                <input type="checkbox" id="habit1">
+                <label for="habit1">Morning Stretch for 10 minutes</label>
+                <span class="plant-icon">🌿</span>
+            </li>
+            <li class="habit-item">
+                <input type="checkbox" id="habit2">
+                <label for="habit2">Read a book for 20 minutes</label>
+                <span class="plant-icon">📖</span>
+            </li>
+            <li class="habit-item">
+                <input type="checkbox" id="habit3">
+                <label for="habit3">Drink 8 glasses of water</label>
+                <span class="plant-icon">💧</span>
+            </li>
+            <li class="habit-item">
+                <input type="checkbox" id="habit4">
+                <label for="habit4">Walk for 30 minutes outside</label>
+                <span class="plant-icon">🚶</span>
+            </li>
+            <li class="habit-item">
+                <input type="checkbox" id="habit5">
+                <label for="habit5">Tidy up for 15 minutes</label>
+                <span class="plant-icon">🧹</span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.habit-item input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', (e) => {
+                    const listItem = e.target.closest('.habit-item');
+                    if (e.target.checked) {
+                        listItem.classList.add('completed');
+                    } else {
+                        listItem.classList.remove('completed');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
